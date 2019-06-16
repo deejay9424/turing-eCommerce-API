@@ -1,0 +1,19 @@
+{
+    "logs": {
+        "errorLog": "error_",
+        "infoLog": "info_"
+    },
+    "hostnameSwagger": "localhost:3000",
+    "hostnameUrlDev": "http://localhost:3000",
+    "Errors": {
+        "department":{
+            "DEP_00":{
+                "status": 400,
+                "code": "DEP_00",
+                "message": "Error in getting all departments",
+                "field": "none"
+            }
+            
+        }
+    }
+}
