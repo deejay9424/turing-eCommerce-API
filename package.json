@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha tests --recursive",
+    "prestart": "start chrome http://localhost:3000/api-docs",
     "start": "nodemon bin/www",
+    "poststart": "open http://localhost:3000/api-docs",
     "build": "webpack --config ./config/webpack.config.js"
   },
   "author": "Dhruv Jain",

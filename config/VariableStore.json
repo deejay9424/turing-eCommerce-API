@@ -12,8 +12,48 @@
                 "code": "DEP_00",
                 "message": "Error in getting all departments",
                 "field": "none"
+            },
+            "DEP_01":{
+                "status": 500,
+                "code": "DEP_01",
+                "message": "ID is not a number",
+                "field": "department_id"
+            },
+            "DEP_02":{
+                "status": 404,
+                "code": "DEP_02",
+                "message": "Don'exist department with this ID",
+                "field": "department_id"
             }
             
+        },
+        "category":{
+            "CAT_00":{
+                "status": 400,
+                "code": "CAT_00",
+                "message": "Error in getting all Categories",
+                "field": "none"
+            },
+            "CAT_01":{
+                "status": 404,
+                "code": "CAT_01",
+                "message": "Don't exist category with this ID.",
+                "field": "category_id"
+            }
+        },
+        "attribute":{
+            "ATT_00":{
+                "status": 400,
+                "code": "ATT_00",
+                "message": "Error in getting attributes",
+                "field": "none"
+            },
+            "ATT_01":{
+                "status": 404,
+                "code": "ATT_01",
+                "message": "Don't exist attribute with this ID.",
+                "field": "attribute_id"
+            }
         }
     }
 }

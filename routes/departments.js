@@ -38,6 +38,7 @@
  *     description: "Everything about department"
  * /departments:
  *   get:
+ *      summary: Get Departments
  *      tags: 
  *          - Departments
  *      description: Return a list of department
@@ -53,10 +54,37 @@
  *         schema:
  *           $ref: '#/definitions/Error'
  */
+/**
+ * @swagger
+ * /departments/{department_id}:
+ *   get:
+ *      summary: Get Department by ID
+ *      tags: 
+ *          - Departments
+ *      description: Return a department by ID
+ *      parameters:
+ *          - name: department_id
+ *            in: path
+ *            description: ID of department
+ *            required: true
+ *            type: number
+ *            minimum: 1
+ *      produces:
+ *        - application/json
+ *      responses:
+ *       200:
+ *         description: An object of Department
+ *         schema:
+ *           $ref: '#/definitions/Department'
+ *       400:
+ *         description: Return an error object
+ *         schema:
+ *           $ref: '#/definitions/Error'
+ */
 const express = require('express');
 const router = express.Router();
 const departmentCtrl = require('../controllers/departmentCtrl');
 
 router.get('/', departmentCtrl.getAllDepartments);
-
+router.get('/:department_id', departmentCtrl.getSingleDepartment);
 module.exports = router;
