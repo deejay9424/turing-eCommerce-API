@@ -18,5 +18,5 @@ con.connect(function (err) {
     }
     console.log(chalk.green("Database Connected!"));
 });
-
+con.on('error', console.error.bind(chalk.yellow('connection error...')));
 module.exports = con;

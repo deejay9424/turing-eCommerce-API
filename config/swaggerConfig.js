@@ -8,13 +8,14 @@ const swaggerDefinition = {
     host: VariableStore.hostnameSwagger,
     basePath: '/',
     securityDefinitions: {
-        bearerAuth: {
+        UserSecurity: {
             type: 'apiKey',
             name: 'User Key',
             scheme: 'bearer',
             in: 'header',
         },
     },
+    schemes: ["http"]
 };
 
 const options = {

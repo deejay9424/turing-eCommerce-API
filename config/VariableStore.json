@@ -54,6 +54,76 @@
                 "message": "Don't exist attribute with this ID.",
                 "field": "attribute_id"
             }
+        },
+        "products":{
+            "PRO_00":{
+                "status": 400,
+                "code": "PRO_00",
+                "message": "Error in getting products",
+                "field": "none"
+            },
+            "PRO_01":{
+                "status": 404,
+                "code": "PRO_01",
+                "message": "Don't exist attribute with this ID.",
+                "field": "attribute_id"
+            }
+        },
+        "Auth":{
+            "AUT_02" :{
+                "status": 401,
+                "code": "AUT_02",
+                "message": "Access Unauthorized",
+                "field": "API-KEY"
+            },
+            "AUT_01" :{
+                "status": 401,
+                "code": "AUT_01",
+                "message": " Authorization code is empty",
+                "field": "API-KEY"
+            }
+        },
+        "orders":{
+            "ORD_00":{
+                "status": 400,
+                "code": "ORD_00",
+                "message": "Error in getting Orders",
+                "field": "none"
+            },
+            "ORD_01":{
+                "status": 404,
+                "code": "ORD_01",
+                "message": "Don't exist order with this ID.",
+                "field": "order_id"
+            }
+        },
+        "tax":{
+            "TAX_00":{
+                "status": 400,
+                "code": "TAX_00",
+                "message": "Error in getting Tax",
+                "field": "none"
+            },
+            "TAX_01":{
+                "status": 404,
+                "code": "TAX_01",
+                "message": "Don't exist Tax with this ID.",
+                "field": "tax_id"
+            }
+        },
+        "shipping":{
+            "SHP_00":{
+                "status": 400,
+                "code": "SHP_00",
+                "message": "Error in getting Shipping Region details",
+                "field": "none"
+            },
+            "SHP_01":{
+                "status": 404,
+                "code": "SHP_01",
+                "message": "Don't exist Shipping region with this ID.",
+                "field": "shipping_region_id"
+            }
         }
     }
 }

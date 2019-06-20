@@ -13,6 +13,10 @@ const app = express();
 const departmentRouter = require('./routes/departments');
 const categoryRouter = require('./routes/categories');
 const attributeRouter = require('./routes/attributes');
+const productsRouter = require('./routes/products');
+const orderRouter = require('./routes/orders');
+const shippingRouter = require('./routes/shipping');
+const taxRouter = require('./routes/tax');
 //=========================================================== Middlewares =================================================================
 const swaggerSpec = swaggerJsDoc(swaggerOptions);
 app.get('/swagger.json', function(req, res) {
@@ -31,6 +35,10 @@ app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 app.use('/departments',departmentRouter);
 app.use('/categories',categoryRouter);
 app.use('/attributes',attributeRouter);
+app.use('/products',productsRouter);
+app.use('/orders',orderRouter);
+app.use('/shipping/regions',shippingRouter);
+app.use('/tax',taxRouter);
 //========================================================== Catch 404 and forward to error handler ======================================
 app.use(function (req, res, next) {
     next(createError(500));
