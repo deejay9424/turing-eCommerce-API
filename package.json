@@ -6,8 +6,9 @@
   "scripts": {
     "test": "mocha tests --recursive",
     "start": "node dist/bundle.js",
-    "startDev":"nodemon bin/www",
-    "build": "webpack --config ./config/webpack.config.js"
+    "startDev": "nodemon bin/www",
+    "build": "webpack --config ./config/webpack.config.js",
+    "deploy": "git push heroku master"
   },
   "author": "Dhruv Jain",
   "license": "ISC",
@@ -16,6 +17,7 @@
     "chalk": "^2.4.2",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "helmet": "^3.18.0",
     "http-errors": "^1.7.2",
