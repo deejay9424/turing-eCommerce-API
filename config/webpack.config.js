@@ -4,12 +4,12 @@ const VariableStore = require('./VariableStore.json');
 
 module.exports = {
     mode: 'production',
-    entry: './bin/www',
+    entry: '../bin/www',
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, '../dist'),
         filename: 'bundle.js'
     },
-    context:path.resolve(__dirname),
+    context: path.resolve(__dirname),
     node: {
         __dirname: true
     },
@@ -27,9 +27,26 @@ module.exports = {
     // },
     module: {
         rules: [
-        ],
-        plugins: [
-            new OpenBrowserPlugin({ url: VariableStore.hostnameUrlDev })
-          ]
+
+            {
+                // Loads the javacript into html template provided.
+                // Entry point is set below in HtmlWebPackPlugin in Plugins 
+                test: /\.ejs$/,
+                use: [
+                    {
+                        loader: "ejs-loader",
+                        //options: { minimize: true }
+                    }
+                ]
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: ['file-loader']
+            }
+        ]
     }
 }
