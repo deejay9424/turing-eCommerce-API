@@ -43,6 +43,8 @@
  *          - Orders
  *      produces:
  *        - application/json
+ *      security:
+ *       - UserSecurity: []
  *      parameters:
  *        - name: cart_id
  *          type: string
@@ -85,6 +87,8 @@
  *      tags: 
  *          - Orders
  *      description: Return a order by ID
+ *      security:
+ *       - UserSecurity: []     
  *      parameters:
  *          - name: order_id
  *            in: path
@@ -147,6 +151,8 @@
  *          - Orders
  *      produces:
  *        - application/json
+ *      security:
+ *       - UserSecurity: []     
  *      responses:
  *       200:
  *         description: Return a array of Orders
@@ -166,6 +172,8 @@
  *      summary: Get info about order
  *      tags: 
  *          - Orders
+ *      security:
+ *       - UserSecurity: []     
  *      parameters:
  *          - name: order_id
  *            in: path

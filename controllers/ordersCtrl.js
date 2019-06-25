@@ -45,42 +45,45 @@ module.exports = {
 
     },
     getSingleOrder: function (req, res, next) {
-        try {
-            var order_id = new Number(req.params.order_id)
-            if (order_id == NaN) {
+        if (req.user) {
+            try {
+                var order_id = new Number(req.params.order_id);
+                conn.query(ordersModel.ordersSP.getSingleOrder + "(" + order_id + ")",
+                    function (err, result, fields) {
+                        if (err) {
+                            logger.error("Error in get one order controller : " + err);
+                            res.status(VariableStore.Errors.orders.ORD_00.status)
+                                .send(VariableStore.Errors.orders.ORD_00)
+                        }
+                        else {
+                            if (result[0].length > 0) {
+                                res.status(200).send(result[0])
+                            }
+                            else {
+                                res.status(VariableStore.Errors.orders.ORD_01.status)
+                                    .send(VariableStore.Errors.orders.ORD_01)
+                            }
+                        }
+                    })
+            }
+            catch (ex) {
                 logger.error("Error in get one order controller : " + err);
                 res.status(VariableStore.Errors.orders.ORD_01.status)
                     .send(VariableStore.Errors.orders.ORD_01)
             }
         }
-        catch (ex) {
-            logger.error("Error in get one order controller : " + err);
-            res.status(VariableStore.Errors.orders.ORD_01.status)
-                .send(VariableStore.Errors.orders.ORD_01)
+        else {
+            logger.error("Error in get one order controller : Unauthorized");
+            res.status(VariableStore.Errors.Auth.AUT_02.status)
+                .send(VariableStore.Errors.Auth.AUT_02)
         }
-        conn.query(ordersModel.ordersSP.getSingleOrder + "(" + order_id + ")",
-            function (err, result, fields) {
-                if (err) {
-                    logger.error("Error in get one order controller : " + err);
-                    res.status(VariableStore.Errors.orders.ORD_00.status)
-                        .send(VariableStore.Errors.orders.ORD_00)
-                }
-                else {
-                    if (result[0].length > 0) {
-                        res.status(200).send(result[0])
-                    }
-                    else {
-                        res.status(VariableStore.Errors.orders.ORD_01.status)
-                            .send(VariableStore.Errors.orders.ORD_01)
-                    }
-                }
-            })
+
+
     },
     getCustomerOrder: function (req, res, next) {
         try {
-            var customer_id = "";
             if (req.user) {
-                var customer_id = new Number(req.user.customer_id);
+                var customer_id = req.user.customer_id;
                 conn.query(ordersModel.ordersSP.getCustomerOrder + "(" + customer_id + ")",
                     function (err, result, fields) {
                         if (err) {

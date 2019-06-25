@@ -6,123 +6,184 @@
     "hostnameSwagger": "localhost:3000",
     "hostnameUrlDev": "http://localhost:3000",
     "Errors": {
-        "department":{
-            "DEP_00":{
+        "department": {
+            "DEP_00": {
                 "status": 400,
                 "code": "DEP_00",
                 "message": "Error in getting all departments",
                 "field": "none"
             },
-            "DEP_01":{
+            "DEP_01": {
                 "status": 500,
                 "code": "DEP_01",
                 "message": "ID is not a number",
                 "field": "department_id"
             },
-            "DEP_02":{
+            "DEP_02": {
                 "status": 404,
                 "code": "DEP_02",
                 "message": "Don'exist department with this ID",
                 "field": "department_id"
             }
-            
         },
-        "category":{
-            "CAT_00":{
+        "category": {
+            "CAT_00": {
                 "status": 400,
                 "code": "CAT_00",
                 "message": "Error in getting all Categories",
                 "field": "none"
             },
-            "CAT_01":{
+            "CAT_01": {
                 "status": 404,
                 "code": "CAT_01",
                 "message": "Don't exist category with this ID.",
                 "field": "category_id"
             }
         },
-        "attribute":{
-            "ATT_00":{
+        "attribute": {
+            "ATT_00": {
                 "status": 400,
                 "code": "ATT_00",
                 "message": "Error in getting attributes",
                 "field": "none"
             },
-            "ATT_01":{
+            "ATT_01": {
                 "status": 404,
                 "code": "ATT_01",
                 "message": "Don't exist attribute with this ID.",
                 "field": "attribute_id"
             }
         },
-        "products":{
-            "PRO_00":{
+        "products": {
+            "PRO_00": {
                 "status": 400,
                 "code": "PRO_00",
                 "message": "Error in getting products",
                 "field": "none"
             },
-            "PRO_01":{
+            "PRO_01": {
                 "status": 404,
                 "code": "PRO_01",
                 "message": "Don't exist attribute with this ID.",
                 "field": "attribute_id"
             }
         },
-        "Auth":{
-            "AUT_02" :{
+        "Auth": {
+            "AUT_02": {
                 "status": 401,
                 "code": "AUT_02",
                 "message": "Access Unauthorized",
                 "field": "API-KEY"
             },
-            "AUT_01" :{
+            "AUT_01": {
                 "status": 401,
                 "code": "AUT_01",
                 "message": " Authorization code is empty",
                 "field": "API-KEY"
             }
         },
-        "orders":{
-            "ORD_00":{
+        "orders": {
+            "ORD_00": {
                 "status": 400,
                 "code": "ORD_00",
                 "message": "Error in getting Orders",
                 "field": "none"
             },
-            "ORD_01":{
+            "ORD_01": {
                 "status": 404,
                 "code": "ORD_01",
                 "message": "Don't exist order with this ID.",
                 "field": "order_id"
             }
         },
-        "tax":{
-            "TAX_00":{
+        "tax": {
+            "TAX_00": {
                 "status": 400,
                 "code": "TAX_00",
                 "message": "Error in getting Tax",
                 "field": "none"
             },
-            "TAX_01":{
+            "TAX_01": {
                 "status": 404,
                 "code": "TAX_01",
                 "message": "Don't exist Tax with this ID.",
                 "field": "tax_id"
             }
         },
-        "shipping":{
-            "SHP_00":{
+        "shipping": {
+            "SHP_00": {
                 "status": 400,
                 "code": "SHP_00",
                 "message": "Error in getting Shipping Region details",
                 "field": "none"
             },
-            "SHP_01":{
+            "SHP_01": {
                 "status": 404,
                 "code": "SHP_01",
                 "message": "Don't exist Shipping region with this ID.",
                 "field": "shipping_region_id"
+            }
+        },
+        "customer": {
+            "USR_00": {
+                "status": 400,
+                "code": "USR_00",
+                "message": "Error in getting Customer details",
+                "field": "none"
+            },
+            "USR_01": {
+                "status": 400,
+                "code": "USR_01",
+                "message": "Email or Password is invalid.",
+                "field": "email/password"
+            },
+            "USR_02": {
+                "status": 400,
+                "code": "USR_02",
+                "message": "The field(s) are/is required.",
+                "field": "email/password/name"
+            },
+            "USR_03": {
+                "status": 400,
+                "code": "USR_03",
+                "message": "The email is invalid",
+                "field": "email"
+            },
+            "USR_04": {
+                "status": 400,
+                "code": "USR_04",
+                "message": "The email already exists.",
+                "field": "email"
+            },
+            "USR_05": {
+                "status": 400,
+                "code": "USR_05",
+                "message": "The email doesn't exist.",
+                "field": "email"
+            },
+            "USR_06": {
+                "status": 400,
+                "code": "USR_06",
+                "message": "this is an invalid phone number",
+                "field": "phone_number"
+            },
+            "USR_07": {
+                "status": 400,
+                "code": "USR_07",
+                "message": "this is too long <FIELD NAME>.",
+                "field": "any field"
+            },
+            "USR_08": {
+                "status": 400,
+                "code": "USR_08",
+                "message": "this is an invalid Credit Card.",
+                "field": "credit_card"
+            },
+            "USR_09": {
+                "status": 400,
+                "code": "USR_09",
+                "message": "The Shipping Region ID is not number",
+                "field": "shippiing_region_id"
             }
         }
     }

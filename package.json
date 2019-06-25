@@ -13,6 +13,7 @@
   "author": "Dhruv Jain",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "chalk": "^2.4.2",
     "compression": "^1.7.4",
@@ -21,6 +22,7 @@
     "express": "^4.17.1",
     "helmet": "^3.18.0",
     "http-errors": "^1.7.2",
+    "jsonwebtoken": "^8.5.1",
     "mysql": "^2.17.1",
     "sequelize": "^5.8.9",
     "swagger-jsdoc": "^3.2.9",

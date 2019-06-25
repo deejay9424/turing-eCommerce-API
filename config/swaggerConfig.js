@@ -10,7 +10,7 @@ const swaggerDefinition = {
     securityDefinitions: {
         UserSecurity: {
             type: 'apiKey',
-            name: 'User Key',
+            name: 'User-Key',
             scheme: 'bearer',
             in: 'header',
         },
