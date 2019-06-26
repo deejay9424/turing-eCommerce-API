@@ -282,33 +282,22 @@ module.exports = {
                 res.status(VariableStore.Errors.products.PRO_01.status)
                     .send(VariableStore.Errors.products.PRO_01)
             }
-        }
-        catch (ex) {
-            logger.error("Error in post product reviews controller : " + err);
-            res.status(VariableStore.Errors.products.PRO_01.status)
-                .send(VariableStore.Errors.products.PRO_01)
-        }
-        try {
-            let customer_id = "";
-            customer_id = req.user.customer_id;
-            let review = req.body.review, rating = req.body.rating;
-            conn.query(productsModel.productsSP.postProductReview + "(" + customer_id + "," + product_id + "," + review + "," + rating + ")",
-                function (err, result, fields) {
-                    if (err) {
-                        logger.error("Error in post product reviews controller : " + err);
-                        res.status(VariableStore.Errors.products.PRO_00.status)
-                            .send(VariableStore.Errors.products.PRO_00)
-                    }
-                    else {
-                        if (result[0].length > 0) {
-                            res.status(200).send(result[0])
+            else {
+                let customer_id = req.user.customer_id;
+                let review = req.body.review, rating = req.body.rating;
+                conn.query(productsModel.productsSP.postProductReview + "(" + customer_id + "," + product_id + ",'" + review + "','" + rating + "')",
+                    function (err, result, fields) {
+                        if (err) {
+                            logger.error("Error in post product reviews controller : " + err);
+                            res.status(VariableStore.Errors.products.PRO_00.status)
+                                .send(VariableStore.Errors.products.PRO_00)
                         }
                         else {
-                            res.status(VariableStore.Errors.products.PRO_01.status)
-                                .send(VariableStore.Errors.products.PRO_01)
+                            res.status(200).send("Data Saved")
                         }
-                    }
-                })
+                    })
+            }
+
         }
         catch (ex) {
             logger.error("Error, Unauthorized user : " + ex);

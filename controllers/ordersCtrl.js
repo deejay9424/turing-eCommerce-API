@@ -48,7 +48,8 @@ module.exports = {
         if (req.user) {
             try {
                 var order_id = new Number(req.params.order_id);
-                conn.query(ordersModel.ordersSP.getSingleOrder + "(" + order_id + ")",
+                var query = ordersModel.ordersSP.getSingleOrder + "(" + order_id + ")";
+                conn.query(query,
                     function (err, result, fields) {
                         if (err) {
                             logger.error("Error in get one order controller : " + err);

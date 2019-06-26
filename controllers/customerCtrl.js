@@ -36,7 +36,7 @@ module.exports = {
                     .send(VariableStore.Errors.customer.USR_00)
             }
             else {
-                if (data) {
+                if (data[0].length > 0) {
                     bcrypt.compare(req.body.password, data[0][0].password, (err, result) => {
                         if (err) {
                             logger.error("Error in Login customer controller, Passwords don't match : " + err);
@@ -130,5 +130,84 @@ module.exports = {
 
         }
 
+    },
+    putCustomerCtrl: function (req, res, next) {
+        try {
+            if (req.user) {
+                let password = bcrypt.hashSync(req.body.password, 10);
+                let customer_id = new Number(req.user.customer_id);
+                let name = req.body.name, email = req.body.email;
+                let day_phone = req.body.day_phone, eve_phone = req.body.eve_phone, mob_phone = req.body.mob_phone;
+                const query = customerModel.customersSP.updateCustomer +
+                    "(" + customer_id + ",'" + name + "','" + email + "','" + password + "','" + day_phone + "','" + eve_phone + "','" + mob_phone + "')";
+                conn.query(query, (err, result) => {
+                    if (err) {
+                        logger.error("Error in update customer by ID controller : " + err);
+                        res.status(VariableStore.Errors.customer.USR_00.status)
+                            .send(VariableStore.Errors.customer.USR_00)
+                    }
+                    else {
+                        res.status(200).send(result[0]);
+                    }
+                })
+
+            }
+            else {
+                res.status(VariableStore.Errors.Auth.AUT_02.status)
+                    .send(VariableStore.Errors.Auth.AUT_02)
+            }
+        }
+        catch (ex) {
+            logger.error("Error in update customer by ID controller : " + ex);
+            res.status(VariableStore.Errors.customer.USR_00.status)
+                .send(VariableStore.Errors.customer.USR_00)
+        }
+    },
+    putAddressCtrl: function (req, res, next) {
+        if (req.user) {
+            let customer_id = new Number(req.user.customer_id);
+            let address_1 = req.body.address_1, address_2 = req.body.address_2, city = req.body.city;
+            let shipping_region_id = new Number(req.body.shipping_region_id);
+            let region = req.body.region, postal_code = req.body.postal_code, country = req.body.country;
+            const query = customerModel.customersSP.updateAddress +
+                "(" + customer_id + ",'" + address_1 + "','" + address_2 + "','" + city + "','" + region + "','" + postal_code + "','" + country + "','" + shipping_region_id + "')";
+            conn.query(query, (err, result) => {
+                if (err) {
+                    logger.error("Error in update Address by ID controller : " + err);
+                    res.status(VariableStore.Errors.customer.USR_00.status)
+                        .send(VariableStore.Errors.customer.USR_00)
+                }
+                else {
+                    res.status(200).send(result[0]);
+                }
+            })
+
+        }
+        else {
+            res.status(VariableStore.Errors.Auth.AUT_02.status)
+                .send(VariableStore.Errors.Auth.AUT_02)
+        }
+    },
+    putCreditCard: function (req, res, next) {
+        if (req.user) {
+            let customer_id = new Number(req.user.customer_id);
+            let creditCard = req.body.credit_card;
+            const query = customerModel.customersSP.updateCreditCard + "(" + customer_id + ",'" + creditCard + "')";
+            conn.query(query, (err, result) => {
+                if (err) {
+                    logger.error("Error in update Credit Card by ID controller : " + err);
+                    res.status(VariableStore.Errors.customer.USR_00.status)
+                        .send(VariableStore.Errors.customer.USR_00)
+                }
+                else {
+                    res.status(200).send(result[0]);
+                }
+            })
+
+        }
+        else {
+            res.status(VariableStore.Errors.Auth.AUT_02.status)
+                .send(VariableStore.Errors.Auth.AUT_02)
+        }
     }
 }

@@ -351,6 +351,7 @@
 const express = require('express');
 const router = express.Router();
 const productsCtrl = require('../controllers/productsCtrl');
+const authCtrl = require('../controllers/authController');
 
 router.get('/', productsCtrl.getAllProducts);
 router.get('/search', productsCtrl.searchProducts);
@@ -360,6 +361,6 @@ router.get('/inDepartment/:department_id', productsCtrl.getProductByDepartment);
 router.get('/:product_id/details', productsCtrl.getProductDetails);
 router.get('/:product_id/locations', productsCtrl.getProductLocations);
 router.get('/:product_id/reviews', productsCtrl.getProductReviews);
-router.post('/:product_id/review', productsCtrl.postProductReviews);
+router.post('/:product_id/review', authCtrl, productsCtrl.postProductReviews);
 
 module.exports = router;
