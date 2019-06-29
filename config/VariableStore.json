@@ -3,7 +3,7 @@
         "errorLog": "error_",
         "infoLog": "info_"
     },
-    "hostnameSwagger": "localhost:3000",
+    "hostnameProd": "https://salty-cove-63363.herokuapp.com",
     "hostnameUrlDev": "http://localhost:3000",
     "Errors": {
         "department": {
@@ -184,6 +184,20 @@
                 "code": "USR_09",
                 "message": "The Shipping Region ID is not number",
                 "field": "shippiing_region_id"
+            }
+        },
+        "shopping_cart": {
+            "SHC_00": {
+                "status": 400,
+                "code": "SHC_00",
+                "message": "Error in getting Shopping Cart ID",
+                "field": "none"
+            },
+            "SHC_01": {
+                "status": 404,
+                "code": "SHC_01",
+                "message": "Don't exist Shipping region with this ID.",
+                "field": "shipping_region_id"
             }
         }
     }

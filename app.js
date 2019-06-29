@@ -18,6 +18,7 @@ const orderRouter = require('./routes/orders');
 const shippingRouter = require('./routes/shipping');
 const taxRouter = require('./routes/tax');
 const customerRouter = require('./routes/customer');
+const shoppingCartRouter = require('./routes/shoppingCart');
 //=========================================================== Middlewares =================================================================
 const authCtrl = require('./controllers/authController');
 const swaggerSpec = swaggerJsDoc(swaggerOptions);
@@ -42,6 +43,7 @@ app.use('/orders',authCtrl,orderRouter);
 app.use('/shipping/regions',shippingRouter);
 app.use('/tax',taxRouter);
 app.use('/customer',customerRouter);
+app.use('/shoppingcart',shoppingCartRouter);
 //========================================================== Catch 404 and forward to error handler ======================================
 app.use(function (req, res, next) {
     next(createError(500));
