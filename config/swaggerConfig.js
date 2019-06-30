@@ -1,9 +1,9 @@
 require('dotenv').config();
 const swaggerDefinition = {
     info: {
-        title: 'Swagger API for eCommerce Website',
+        title: 'API for eCommerce Website',
         version: '1.0.0',
-        description: 'Endpoints for turing eCommerce website',
+        description: 'Endpoints for eCommerce website',
     },
     host: process.env.HostName,
     basePath: '/',
